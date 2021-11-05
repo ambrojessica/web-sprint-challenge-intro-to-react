@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Cast from './mocks/Cast';
-import List from './mocks/List';
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -14,16 +14,7 @@ const App = () => {
 
   // variables
   const [characters, setCharacters] = useState([]);
-  const [data, setData] = useState(null);
-
-  const openCharacter = id => {
-      setData(id)
-  }
-
-  const closeCharacter = () => {
-    setData(null)
-  }
-
+ 
 //useEffect
   useEffect (() => {
     axios.get(`https://swapi.dev/api/people`)
@@ -39,8 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Cast characters={characters} openCharacter={openCharacter}/>
-      { data && <List close={closeCharacter}/>}
+      <Cast characters={characters} key={characters.name} />
     </div>
   );
 }

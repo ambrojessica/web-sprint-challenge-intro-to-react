@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 const List = (props) => {
-  const open = () => {
-    
-  }
+  const [open, setOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setOpen(!open)
+  };
+
+  
   return (
     <div>
       <h3>{props.character.name}</h3>
-      <button onClick={open}>{props.character.birth_year}</button>
+      {open && 
       <ul>
-        <li>{props.character.gender}</li>
-        <li>{props.character.height}</li>
-        <li>{props.character.mass}</li>
-        <li>{props.character.skin_color}</li>
+        <li>Gender: {props.character.gender}</li>
+        <li>Height: {props.character.height}</li>
+        <li>Mass: {props.character.mass}</li>
+        <li>Skin-Color: {props.character.skin_color}</li>
       </ul>
-      
+      }
+      <button onClick={toggleOpen}>{open ? 'close' : 'open' } </button>
     </div>
   )
 }
