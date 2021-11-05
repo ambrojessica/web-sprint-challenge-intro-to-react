@@ -4,6 +4,7 @@ import './App.css';
 import Cast from './mocks/Cast';
 
 
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -29,7 +30,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Characters</h1>
+      <h1 className="Header"> React Wars Characters <span role="img" aria-label='star'>🪐</span></h1>
       <Cast characters={characters} key={characters.name} />
     </div>
   );
